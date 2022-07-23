@@ -23,26 +23,11 @@
 					{{ .Site.Title }}
 				</a>
 			</h1>
-			<!--
-			<nav class="navigation">
-				<ul>
-					{{ $pagePath := .RelPermalink }}
-					{{ $pagePathSplit := split $pagePath "/" }}
-					{{ $pageFirstPathPart := cond (eq $pagePath "/") "/" (print "/" (index $pagePathSplit 1) "/") }}
-					{{ range .Site.Menus.main }}
-						{{ $menuItemPath := .Page.RelPermalink }}
-						<li class="navigation-item{{ if eq $pageFirstPathPart $menuItemPath }} navigation-item-active{{ end }}">
-							<a href="{{ $menuItemPath }}">
-								{{- .Title -}}
-							</a>
-						</li>
-					{{ end }}
-				</ul>
-			</nav>
-			-->
 			<nav>
 				<ul>
-					<li><a href="https://vladh.net">Back to vladh.net</a></li>
+					<li><a href="https://vladh.net">↵ Back to vladh.net</a></li>
+					<li><a href="/">Feed</a></li>
+					<li><a href="/posts">Post index</a></li>
 					<li><a href="/index.xml">Subscribe to RSS</a></li>
 				</ul>
 			</nav>
@@ -50,5 +35,10 @@
 		<main>
 			{{ block "main" . }}{{ end }}
 		</main>
+		<footer>
+			(c) 2022 Vlad-Stefan Harbuz.
+			Content is <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>.
+			<a href="https://git.sr.ht/~vladh/microblog">Code</a> is <a href="https://opensource.org/licenses/MIT">MIT</a>.
+		</footer>
 	</body>
 </html>

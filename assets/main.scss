@@ -1,10 +1,23 @@
-$font-family-headings: 'DIN Next LT Pro', 'Helvetica Neue', Helvetica, sans-serif;
-$font-family-body: 'Independent', Georgia, serif;
+$color-main: #05e;
+$color-paper: #f6f7fa;
+$color-text: #111;
+$color-white: #fefefe;
+$color-vladh-12-primary: #67CC08;
+$color-vladh-12-secondary: #F2C41F;
+$color-vladh-bg: #312e3b;
+
 $font-size-1: 14px;
 $font-size-2: 17px;
 $font-size-3: 20px;
 $font-size-4: 24px;
+$font-size-5: 30px;
 $font-size-code: 15px;
+
+$font-family-headings: 'DIN Next LT Pro', 'Helvetica Neue', Helvetica, sans-serif;
+$font-family-body: 'Independent', Georgia, serif;
+
+$image-size: 70px;
+$image-size-sm: 50px;
 
 @font-face {
 	font-family: 'DIN Next LT Pro';
@@ -48,11 +61,12 @@ body {
 	padding: 2rem 1rem;
 	font-family: $font-family-body;
 	font-size: 14px;
+	font-size: $font-size-2;
+	line-height: 1.5;
 }
 
-p, pre, ul, li, time {
-	font-size: $font-size-2;
-	line-height: 1.7;
+pre {
+	white-space: pre-wrap;
 }
 
 p, pre {
@@ -64,20 +78,27 @@ p, pre {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $font-family-headings;
 	font-weight: 400;
 }
 
+small {
+	font-size: $font-size-1;
+}
+
 header {
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 	h1 {
 		margin: 0;
-		margin-bottom: 1rem;
-		font-size: 2rem;
+		margin-bottom: 0.5rem;
+		font-size: $font-size-5;
+		font-family: $font-family-headings;
+		@media (max-width: 350px) {
+			font-size: $font-size-4;
+		}
 		a {
 			display: block;
 			text-decoration: none;
-			color: #0055ee;
+			color: $color-main;
 			.circle {
 				padding-right: 0.5rem;
 				display: inline-block;
@@ -87,7 +108,6 @@ header {
 }
 
 nav {
-	font-family: $font-family-headings;
 	ul {
 		list-style: none;
 		margin: 0;
@@ -95,27 +115,135 @@ nav {
 		li {
 			display: inline-block;
 			margin-right: 2rem;
+			@media (max-width: 600px) {
+				display: block;
+			}
 		}
 	}
 }
 
-article {
-	margin-bottom: 3rem;
-	.article__head {
-		margin-bottom: 1rem;
-		h2 {
-			margin: 0;
-			margin-bottom: 0.5rem;
-			font-size: $font-size-4;
-		}
-		ul {
-			display: inline-block;
-			list-style: none;
-			margin: 0;
-			padding: 0;
-			li {
-				display: inline-block;
+.postfeed {
+	margin-bottom: 2rem;
+	.postfeed__post {
+		margin: 4rem 0;
+		.postfeed__head {
+			display: flex;
+			img {
+				flex: 0 0 $image-size;
+				display: block;
+				width: $image-size;
+				height: $image-size;
+				margin-right: 1rem;
+				@media (max-width: 600px) {
+					flex: 0 0 $image-size-sm;
+					width: $image-size-sm;
+					height: $image-size-sm;
+				}
 			}
+			.postfeed__meta {
+				display: flex;
+				flex: 1;
+				padding-bottom: 1rem;
+				@media (max-width: 600px) {
+					display: block;
+				}
+			}
+			.postfeed__meta1 {
+				flex: 1 0;
+				font-size: $font-size-2;
+				h2 {
+					margin: 0;
+					margin-bottom: 0.4rem;
+					font-size: $font-size-3;
+					line-height: 1; /* sue me :P */
+				}
+				.postfeed__name {
+					font-family: $font-family-headings;
+					strong {
+						margin-right: 0.3rem;
+					}
+				}
+				ul {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					li {
+						display: inline-block;
+						a {
+							color: $color-text;
+							&:visited {
+								color: #666;
+							}
+							&:hover {
+								color: $color-main;
+							}
+						}
+					}
+				}
+			}
+			.postfeed__meta2 {
+				flex: 1;
+				text-align: right;
+				@media (max-width: 600px) {
+					margin-top: 0.2rem;
+					font-size: $font-size-1;
+					text-align: left;
+				}
+			}
+		}
+		.postfeed__content {
+			margin-left: calc(70px + 1rem);
+			padding-top: 1rem;
+			border-top: 1px dotted #aaa;
+			@media (max-width: 600px) {
+				margin-left: 0;
+				padding-left: 0;
+			}
+			h2 {
+				margin: 0;
+				margin-bottom: 1rem;
+				font-size: $font-size-2;
+				font-weight: bold;
+				a {
+					text-decoration: none;
+					color: $color-text;
+				}
+			}
+		}
+	}
+}
+
+.postlist {
+	h3 {
+		font-size: $font-size-2;
+	}
+	time {
+		display: inline-block;
+		min-width: 6rem;
+	}
+	a {
+		color: $color-text;
+		&:visited {
+			color: #666;
+		}
+		&:hover {
+			color: $color-main;
+		}
+	}
+}
+
+footer {
+	color: #666;
+	margin: 4rem 0;
+	text-align: center;
+	font-size: $font-size-1;
+	a {
+		color: $color-text;
+		&:visited {
+			color: #666;
+		}
+		&:hover {
+			color: $color-main;
 		}
 	}
 }

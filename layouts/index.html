@@ -1,13 +1,43 @@
 {{ define "main" }}
 	<div class="page page--homepage">
-		{{ range (where .Site.RegularPages "Section" "posts") }}
-		<article>
-			<div class="article__head">
-				<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-				{{ partial "post-metadata.html" . }}
+		<div class="postfeed">
+			{{ range (where .Site.RegularPages "Section" "posts") }}
+			<div class="postfeed__post">
+				<div class="postfeed__head">
+					<img src="https://vladh.net/static/vlad@100px.jpg">
+					<div class="postfeed__meta">
+						<div class="postfeed__meta1">
+							<div class="postfeed__name">
+								<strong>Vlad-Stefan Harbuz</strong>
+								@vladh
+							</div>
+							<ul>
+								{{ with .Param "tags" }}
+									in {{ range $index, $category := . }}
+										{{- with $.Site.GetPage (printf "/tags/%s" ($category | urlize)) -}}
+											{{- if $index -}}, {{ end -}}
+											<li><a href="{{ .Permalink }}">{{ $category }}</a></li>
+										{{- end -}}
+									{{ end }}
+								{{ end }}
+							</ul>
+						</div>
+						<div class="postfeed__meta2">
+							<time datetime="{{ .Date.Format "2006-01-02 15:04" }}">
+								{{ .Date.Format "2006-01-02 15:04" }}
+							</time>
+							{{ if .Params.location }}
+								<div class="postfeed__location">{{ .Params.location }}</div>
+							{{ end }}
+						</div>
+					</div>
+				</div>
+				<div class="postfeed__content">
+					<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+					{{ .Content }}
+				</div>
 			</div>
-			{{ .Content }}
-		</article>
-		{{ end }}
+			{{ end }}
+		</div>
 	</div>
 {{ end }}

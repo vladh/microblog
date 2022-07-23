@@ -3,13 +3,26 @@
 		<h2>{{ .Title }}</h2>
 		<div>{{ .Content }}</div>
 
-		<ul>
+		<div class="postlist">
 			{{ range .Pages }}
-				<li>
-					<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-					{{ partial "post-metadata.html" . }}
-					<p>{{ .Summary }}</p>
-				</li>
+				<div>
+					<h3>
+						<time datetime="{{ .Date.Format "2006-01-02" }}">
+							{{ .Date.Format "2006-01-02" }}
+						</time>
+						<a href="{{ .Permalink }}">{{ .Title }}</a>
+						<small>
+							{{ with .Param "tags" }}
+								in {{ range $index, $category := . }}
+									{{- with $.Site.GetPage (printf "/tags/%s" ($category | urlize)) -}}
+										{{- if $index -}}, {{ end -}}
+										<a href="{{ .Permalink }}">{{ $category }}</a>
+									{{- end -}}
+								{{ end }}
+							{{ end }}
+						</small>
+					</h3>
+				</div>
 			{{ end }}
 		</ul>
 	</div>

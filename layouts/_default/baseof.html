@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="{{ .Site.Params.Description }}">
 
-		<title>{{ .Site.Title }}</title>
+		<title>vladh's microblog</title>
 
 		{{ $style := resources.Get "main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
@@ -16,8 +16,13 @@
 	</head>
 
 	<body>
-		<header class="header">
-			<h1 class="site-title"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a></h1>
+		<header>
+			<h1>
+				<a href="{{ .Site.BaseURL | relLangURL }}">
+					<div class="circle">⬤</div>
+					{{ .Site.Title }}
+				</a>
+			</h1>
 			<!--
 			<nav class="navigation">
 				<ul>
@@ -35,7 +40,12 @@
 				</ul>
 			</nav>
 			-->
-			<a href="/index.xml">Subscribe</a>
+			<nav>
+				<ul>
+					<li><a href="https://vladh.net">Back to vladh.net</a></li>
+					<li><a href="/index.xml">Subscribe to RSS</a></li>
+				</ul>
+			</nav>
 		</header>
 		<main>
 			{{ block "main" . }}{{ end }}

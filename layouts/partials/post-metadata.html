@@ -1,16 +1,16 @@
 {{ if .Date }}
-	<div class="post-metadata">
+	<div class="postmeta">
 		{{ if .Date }}
-		<p class="post-date-created">
+		<p class="postmeta__date">
 			<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
 		</p>
 		{{ end }}
 
-		<ul class="post-category-list">
+		<ul class="postmeta__categories">
 			{{ with .Param "tags" }}
 				{{ range $index, $category := . }}
 					{{- with $.Site.GetPage (printf "/tags/%s" ($category | urlize)) -}}
-						<li class="post-category"><a href="{{ .Permalink }}">{{ $category }}</a></li>
+						<li><a href="{{ .Permalink }}">{{ $category }}</a></li>
 					{{- end -}}
 				{{ end }}
 			{{ end }}

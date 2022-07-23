@@ -1,3 +1,95 @@
-html, body {
-    background: pink;
+$font-family-headings: 'DIN Next LT Pro', 'Helvetica Neue', Helvetica, sans-serif;
+$font-family-body: 'Independent', Georgia, serif;
+$font-size-1: 14px;
+$font-size-2: 17px;
+$font-size-3: 20px;
+$font-size-4: 24px;
+$font-size-code: 15px;
+
+@font-face {
+	font-family: 'DIN Next LT Pro';
+	font-weight: 200;
+	src: url(/fonts/din/DINNextLTPro-Light.woff) format('woff');
+	font-display: swap;
+}
+@font-face {
+	font-family: 'DIN Next LT Pro';
+	font-weight: 400;
+	src: url(/fonts/din/DINNextLTPro-Regular.woff) format('woff');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Independent';
+	font-weight: 400;
+	src: url(/fonts/independent/independent-regular.woff) format('woff');
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Independent';
+	font-weight: bold;
+	src: url(/fonts/independent/independent-bold.woff) format('woff');
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Independent';
+	font-style: italic;
+	src: url(/fonts/independent/independent-italic.woff) format('woff');
+	font-display: swap;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 1rem;
+	font-family: $font-family-body;
+	font-size: 14px;
+}
+
+p, ul, li {
+	font-size: $font-size-2;
+	line-height: 1.7;
+}
+
+p {
+	margin: 0;
+	margin-bottom: $font-size-3;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+pre {
+	font-size: $font-size-code;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-family-headings;
+	font-weight: 400;
+}
+
+header {
+	h1 {
+		font-size: 2rem;
+		a {
+			display: block;
+			text-decoration: none;
+			color: #0055ee;
+			.circle {
+				padding-right: 0.5rem;
+				display: inline-block;
+			}
+		}
+	}
+}
+
+article {
+	margin-bottom: 4rem;
+	h2 {
+		font-size: $font-size-4;
+	}
 }

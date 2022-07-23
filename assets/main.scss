@@ -65,11 +65,33 @@ body {
 	line-height: 1.5;
 }
 
-pre {
+code {
+	padding: 0.2rem;
 	white-space: pre-wrap;
+	background: #f2f2f2;
 }
 
-p, pre {
+pre {
+	padding: 0.5rem;
+	white-space: pre-wrap;
+	background: #f2f2f2;
+	font-size: $font-size-1;
+	code {
+		padding: 0;
+	}
+}
+
+a {
+	color: $color-text;
+	&:visited {
+		color: #555;
+	}
+	&:hover {
+		color: $color-main;
+	}
+}
+
+p, pre, .highlight {
 	margin: 0;
 	margin-bottom: $font-size-3;
 	&:last-child {
@@ -95,7 +117,7 @@ header {
 		@media (max-width: 350px) {
 			font-size: $font-size-4;
 		}
-		a {
+		a, a:hover, a:visited {
 			display: block;
 			text-decoration: none;
 			color: $color-main;
@@ -118,96 +140,98 @@ nav {
 			@media (max-width: 600px) {
 				display: block;
 			}
+			a {
+				padding: 0.3em 0.1em;
+			}
+			a, a:hover, a:visited {
+				color: $color-main;
+			}
+			a:hover {
+				background: $color-main;
+				color: white;
+			}
 		}
 	}
 }
 
 .postfeed {
 	margin-bottom: 2rem;
-	.postfeed__post {
-		margin: 4rem 0;
-		.postfeed__head {
+}
+
+.post {
+	margin: 4rem 0;
+	.post__head {
+		display: flex;
+		img {
+			flex: 0 0 $image-size;
+			display: block;
+			width: $image-size;
+			height: $image-size;
+			margin-right: 1rem;
+			@media (max-width: 600px) {
+				flex: 0 0 $image-size-sm;
+				width: $image-size-sm;
+				height: $image-size-sm;
+			}
+		}
+		.post__meta {
 			display: flex;
-			img {
-				flex: 0 0 $image-size;
+			flex: 1;
+			padding-bottom: 1rem;
+			@media (max-width: 600px) {
 				display: block;
-				width: $image-size;
-				height: $image-size;
-				margin-right: 1rem;
-				@media (max-width: 600px) {
-					flex: 0 0 $image-size-sm;
-					width: $image-size-sm;
-					height: $image-size-sm;
+			}
+		}
+		.post__meta1 {
+			flex: 1 0;
+			font-size: $font-size-2;
+			h2 {
+				margin: 0;
+				margin-bottom: 0.4rem;
+				font-size: $font-size-3;
+				line-height: 1; /* sue me :P */
+			}
+			.post__name {
+				font-family: $font-family-headings;
+				strong {
+					margin-right: 0.3rem;
 				}
 			}
-			.postfeed__meta {
-				display: flex;
-				flex: 1;
-				padding-bottom: 1rem;
-				@media (max-width: 600px) {
-					display: block;
-				}
-			}
-			.postfeed__meta1 {
-				flex: 1 0;
-				font-size: $font-size-2;
-				h2 {
-					margin: 0;
-					margin-bottom: 0.4rem;
-					font-size: $font-size-3;
-					line-height: 1; /* sue me :P */
-				}
-				.postfeed__name {
-					font-family: $font-family-headings;
-					strong {
-						margin-right: 0.3rem;
-					}
-				}
-				ul {
-					list-style: none;
-					margin: 0;
-					padding: 0;
-					li {
-						display: inline-block;
-						a {
-							color: $color-text;
-							&:visited {
-								color: #666;
-							}
-							&:hover {
-								color: $color-main;
-							}
-						}
-					}
-				}
-			}
-			.postfeed__meta2 {
-				flex: 1;
-				text-align: right;
-				@media (max-width: 600px) {
-					margin-top: 0.2rem;
-					font-size: $font-size-1;
-					text-align: left;
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				li {
+					display: inline-block;
 				}
 			}
 		}
-		.postfeed__content {
-			margin-left: calc(70px + 1rem);
-			padding-top: 1rem;
-			border-top: 1px dotted #aaa;
+		.post__meta2 {
+			flex: 1;
+			text-align: right;
 			@media (max-width: 600px) {
-				margin-left: 0;
-				padding-left: 0;
+				margin-top: 0.2rem;
+				font-size: $font-size-1;
+				text-align: left;
 			}
-			h2 {
-				margin: 0;
-				margin-bottom: 1rem;
-				font-size: $font-size-2;
-				font-weight: bold;
-				a {
-					text-decoration: none;
-					color: $color-text;
-				}
+		}
+	}
+	.post__content {
+		margin-left: calc(70px + 1rem);
+		padding-top: 1rem;
+		border-top: 1px dotted #aaa;
+		@media (max-width: 600px) {
+			margin-left: 0;
+			padding-left: 0;
+		}
+		h2 {
+			margin: 0;
+			margin-bottom: 1rem;
+			font-size: $font-size-2;
+			font-weight: bold;
+			a {
+				text-decoration: none;
+				color: $color-text;
 			}
 		}
 	}
@@ -221,15 +245,6 @@ nav {
 		display: inline-block;
 		min-width: 6rem;
 	}
-	a {
-		color: $color-text;
-		&:visited {
-			color: #666;
-		}
-		&:hover {
-			color: $color-main;
-		}
-	}
 }
 
 footer {
@@ -237,13 +252,4 @@ footer {
 	margin: 4rem 0;
 	text-align: center;
 	font-size: $font-size-1;
-	a {
-		color: $color-text;
-		&:visited {
-			color: #666;
-		}
-		&:hover {
-			color: $color-main;
-		}
-	}
 }

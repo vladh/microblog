@@ -1,0 +1,35 @@
+<div class="post">
+	<div class="post__head">
+		<img src="https://vladh.net/static/vlad@100px.jpg">
+		<div class="post__meta">
+			<div class="post__meta1">
+				<div class="post__name">
+					<strong>Vlad-Stefan Harbuz</strong>
+					@vladh
+				</div>
+				<ul>
+					{{ with .Param "tags" }}
+						in {{ range $index, $category := . }}
+							{{- with $.Site.GetPage (printf "/tags/%s" ($category | urlize)) -}}
+								{{- if $index -}}, {{ end -}}
+								<li><a href="{{ .Permalink }}">{{ $category }}</a></li>
+							{{- end -}}
+						{{ end }}
+					{{ end }}
+				</ul>
+			</div>
+			<div class="post__meta2">
+				<time datetime="{{ .Date.Format "2006-01-02 15:04" }}">
+					{{ .Date.Format "2006-01-02 15:04" }}
+				</time>
+				{{ if .Params.location }}
+					<div class="post__location">{{ .Params.location }}</div>
+				{{ end }}
+			</div>
+		</div>
+	</div>
+	<div class="post__content">
+		<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+		{{ .Content }}
+	</div>
+</div>

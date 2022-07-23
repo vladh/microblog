@@ -1,9 +1,5 @@
 {{ define "main" }}
 	<div class="page{{ if .Date }} page--post{{ end }}">
-		<article>
-			<h2>{{ .Title }}</h2>
-			{{ partial "post-metadata.html" . }}
-			<div>{{ .Content }}</div>
-		</article>
+			{{ partial "post.html" . }}
 	</div>
 {{ end }}

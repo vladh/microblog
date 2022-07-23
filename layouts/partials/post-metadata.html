@@ -1,15 +1,14 @@
 {{ if .Date }}
 	<div class="postmeta">
 		{{ if .Date }}
-		<p class="postmeta__date">
-			<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-		</p>
+		<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
 		{{ end }}
 
-		<ul class="postmeta__categories">
+		<ul>
 			{{ with .Param "tags" }}
-				{{ range $index, $category := . }}
+				in {{ range $index, $category := . }}
 					{{- with $.Site.GetPage (printf "/tags/%s" ($category | urlize)) -}}
+						{{- if $index -}}, {{ end -}}
 						<li><a href="{{ .Permalink }}">{{ $category }}</a></li>
 					{{- end -}}
 				{{ end }}

@@ -45,26 +45,22 @@ $font-size-code: 15px;
 body {
 	max-width: 900px;
 	margin: 0 auto;
-	padding: 1rem;
+	padding: 2rem 1rem;
 	font-family: $font-family-body;
 	font-size: 14px;
 }
 
-p, ul, li {
+p, pre, ul, li, time {
 	font-size: $font-size-2;
 	line-height: 1.7;
 }
 
-p {
+p, pre {
 	margin: 0;
 	margin-bottom: $font-size-3;
 	&:last-child {
 		margin-bottom: 0;
 	}
-}
-
-pre {
-	font-size: $font-size-code;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,7 +69,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
+	margin-bottom: 2rem;
 	h1 {
+		margin: 0;
+		margin-bottom: 1rem;
 		font-size: 2rem;
 		a {
 			display: block;
@@ -87,9 +86,36 @@ header {
 	}
 }
 
+nav {
+	font-family: $font-family-headings;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline-block;
+			margin-right: 2rem;
+		}
+	}
+}
+
 article {
-	margin-bottom: 4rem;
-	h2 {
-		font-size: $font-size-4;
+	margin-bottom: 3rem;
+	.article__head {
+		margin-bottom: 1rem;
+		h2 {
+			margin: 0;
+			margin-bottom: 0.5rem;
+			font-size: $font-size-4;
+		}
+		ul {
+			display: inline-block;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			li {
+				display: inline-block;
+			}
+		}
 	}
 }

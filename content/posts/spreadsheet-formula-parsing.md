@@ -1,7 +1,7 @@
 ---
 title: "Spreadsheet Formula Parsing"
 date: 2022-07-23T15:29:21+01:00
-tags: [spreadsheets]
+tags: [spreadsheets, potato]
 draft: false
 ---
 

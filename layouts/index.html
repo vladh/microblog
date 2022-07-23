@@ -2,8 +2,10 @@
 	<div class="page page--homepage">
 		{{ range (where .Site.RegularPages "Section" "posts") }}
 		<article>
-			<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-			{{ partial "post-metadata.html" . }}
+			<div class="article__head">
+				<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+				{{ partial "post-metadata.html" . }}
+			</div>
 			{{ .Content }}
 		</article>
 		{{ end }}

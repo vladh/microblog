@@ -1,0 +1,3 @@
+baseURL = 'https://microblog.vladh.net/'
+languageCode = 'en-us'
+title = "vladh's microblog"

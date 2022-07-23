@@ -1,0 +1,9 @@
+{{ define "main" }}
+	<div class="page{{ if .Date }} post{{ end }}">
+		<article>
+			<h2 class="page-title{{ if .Date }} post-title{{ end }}">{{ .Title }}</h2>
+			{{ partial "post-metadata.html" . }}
+			<div class="page-content{{ if .Date }} post-content{{ end }}">{{ .Content }}</div>
+		</article>
+	</div>
+{{ end }}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="{{ .Site.Params.Description }}">
+
+		<title>{{ .Site.Title }}</title>
+
+		{{ $style := resources.Get "main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+		{{ range .AlternativeOutputFormats -}}
+			{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+		{{ end -}}
+	</head>
+
+	<body>
+		<header class="header">
+			<h1 class="site-title"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a></h1>
+			<!--
+			<nav class="navigation">
+				<ul>
+					{{ $pagePath := .RelPermalink }}
+					{{ $pagePathSplit := split $pagePath "/" }}
+					{{ $pageFirstPathPart := cond (eq $pagePath "/") "/" (print "/" (index $pagePathSplit 1) "/") }}
+					{{ range .Site.Menus.main }}
+						{{ $menuItemPath := .Page.RelPermalink }}
+						<li class="navigation-item{{ if eq $pageFirstPathPart $menuItemPath }} navigation-item-active{{ end }}">
+							<a href="{{ $menuItemPath }}">
+								{{- .Title -}}
+							</a>
+						</li>
+					{{ end }}
+				</ul>
+			</nav>
+			-->
+			<a href="/index.xml">Subscribe</a>
+		</header>
+		<main>
+			{{ block "main" . }}{{ end }}
+		</main>
+	</body>
+</html>

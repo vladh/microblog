@@ -1,0 +1,13 @@
+{{ define "main" }}
+	<div class="page homepage">
+		<div class="page-content homepage-content">
+			{{ range (where .Site.RegularPages "Section" "posts") }}
+			<div class="article">
+				<h3 class="page-preview-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+				{{ partial "post-metadata.html" . }}
+				{{ .Content }}
+			</div>
+			{{ end }}
+		</div>
+	</div>
+{{ end }}

@@ -15,7 +15,10 @@ Portsmouth.
 However, before I left, I thought it would be really cool to see how the
 temperature and humidity in the flat change during the heat wave while I'm away.
 Luckily enough, I realised I had a Raspberry Pi Zero and a BME280 temperature
-sensor, so I got to work putting them together! Here's what it looks like.
+sensor, so I got to work putting them together. You can get the sensor [from
+Adafruit](https://www.adafruit.com/product/2652) — it's easy to connect via I2C
+and it seems to be quite well-supported when it comes to Linux drivers.
+Here's what it all looks like.
 
 ![A Raspberry Pi connected to a temperature
 sensor](https://vladh.net/static/microblog/sensor@800px.jpg "My Raspberry Pi

@@ -74,3 +74,6 @@ The next step is to actually write the evaluator, which will walk this abstract
 syntax tree, evaluate all the expressions and return the result of the whole
 thing. In our above case, it would probably be, like, `hello57` or something,
 depending on what's in your spreadsheet.
+
+**Update:** The code for the formula evaluator is now open-source and available
+at [git.sr.ht/~vladh/sheets-formula-evaluator](https://git.sr.ht/~vladh/sheets-formula-evaluator/).

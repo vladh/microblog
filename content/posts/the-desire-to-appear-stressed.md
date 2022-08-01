@@ -33,7 +33,7 @@ insulting to them?
 At the same time, your desire to telegraph the correct signals to others is leading to you _actually_ having a stressful
 life, not only because you are constantly worried that you actually do not deserve your success and are hence committing
 some awful injustice, but also because the desire to appear stressed and hard-working causes you to ultimately take all
-of the happiness and peace of mind that your success could have brought you and put it down the bin. Is it not sad to be
+of the happiness and peace of mind that your success could have brought you and put it in the bin. Is it not sad to be
 one of the lucky few and never enjoy the fruits of your luck, never lead a relaxed and happy life, simply because of
 the desire to appear deserving?
 

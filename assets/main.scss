@@ -246,6 +246,23 @@ nav {
 				color: $color-text;
 			}
 		}
+		hr {
+			border: none;
+			margin: 2rem 0;
+			&:before {
+				display: block;
+				content: '⁂';
+				text-align: center;
+			}
+		}
+		.footnotes hr {
+			border-bottom: 1px solid #ddd;
+			margin-top: 2rem;
+			margin-bottom: 0;
+			&:before {
+				content: '';
+			}
+		}
 	}
 }
 

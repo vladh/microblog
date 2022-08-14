@@ -2,3 +2,7 @@
 baseURL = 'https://microblog.vladh.net/'
 languageCode = 'en-us'
 title = "vladh's microblog"
+
+[markup]
+    [markup.highlight]
+        noclasses = false

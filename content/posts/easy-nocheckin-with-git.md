@@ -13,7 +13,7 @@ have a lot of changes things can slip through the cracks.
 
 A solution is to write a comment containing a string such as "nocheckin":
 
-```
+```c
 function do_stuff() {
     printf("hello!!! testing!!!\n"); // nocheckin
     call_important_thing();
@@ -26,7 +26,7 @@ the "nocheckin" string anywhere in your changed files. Here's how to do it.
 
 Save this script somewhere — I put it in `~/.bin/validate-nocheckin`:
 
-```
+```shell
 #!/bin/sh -eu
 
 # get the staged files
@@ -48,13 +48,13 @@ Then, whenever you want this feature, simply symlink that script as the
 hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks#_git_hooks) by
 running this from the root folder of your git repository:
 
-```
+```plain
 ln -s ~/.bin/validate-nocheckin .git/hooks/pre-commit
 ```
 
 If you then try to commit your code, it won't work:
 
-```
+```plain
 vladh ki test:master $ git commit -m 'will it work?'
 ERROR: main.c contains 'nocheckin', failing commit
 ```

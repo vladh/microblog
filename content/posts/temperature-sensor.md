@@ -29,7 +29,7 @@ together [something super quick in Go](https://git.sr.ht/~vladh/dewdrop) using
 a driver someone had already written, and this allowed me to read the
 temperature, humidity, and atmospheric pressure in a particular instant.
 
-```
+```go
 package main
 
 import (

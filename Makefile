@@ -4,4 +4,4 @@ all:
 	hugo -D
 
 publish: all
-	rsync --progress -r --delete public/ yavin:/srv/www/net.vladh.microblog
+	rsync -rh --progress --delete --stats public/ yavin:/srv/www/net.vladh.microblog

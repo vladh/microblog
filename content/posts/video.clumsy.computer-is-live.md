@@ -44,3 +44,5 @@ future! :)
 
 As I always say at the end of clumsy computer videos, see you soon and have fun
 programming!
+
+[Visit video.clumsy.computer →](https://video.clumsy.computer)

@@ -1,7 +1,7 @@
 .PHONY: all publish
 
 all:
-	hugo -D
+	hugo
 
 publish: all
 	rsync -rh --progress --delete --stats public/ yavin:/srv/www/net.vladh.microblog
